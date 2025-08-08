@@ -50,7 +50,8 @@ def main():
                     pass
                 else:
                     s.kill()
-                    a.kill()
+                    a.split()
+                    updatable.update(0)
         for item in drawable:
             item.draw(screen)
             

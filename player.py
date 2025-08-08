@@ -38,10 +38,10 @@ class Player(CircleShape):
         if keys[pygame.K_s]:
             self.move(dt*-1)
         if keys[pygame.K_SPACE]:
-            x = self.position.x
-            y = self.position.y
+            #x = self.position.x
+            #y = self.position.y
             if self.cooldown <= 0:
-                self.shoot(x,y,self.rotation)
+                self.shoot(self.position.x, self.position.y, self.rotation)
                 self.cooldown = PLAYER_SHOOT_COOLDOWN
             
         self.cooldown -= dt

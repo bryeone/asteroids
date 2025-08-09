@@ -17,6 +17,8 @@ def main():
     print(f"Screen height: {SCREEN_HEIGHT}")
 
     game_loop = True
+    score = 0
+
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
@@ -43,14 +45,20 @@ def main():
                 pass
             else:
                 print("Game over!")
+                print(f"Score: {score} ")
                 sys.exit(1)
         for a in asteroids:
             for s in shots:
                 if s.collision(a):
                     pass
                 else:
+                    if a.radius <= ASTEROID_MIN_RADIUS:
+                        score += 10
+                    else:
+                        score += 1
                     s.kill()
                     a.split()
+                    
                     updatable.update(0)
         for item in drawable:
             item.draw(screen)
